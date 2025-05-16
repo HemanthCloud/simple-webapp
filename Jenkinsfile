@@ -12,8 +12,8 @@ pipeline {
       steps {
         sshagent(['jenkins-ec2-key']) {
           sh '''
-            scp -o StrictHostKeyChecking=no -r * ec2-user@<EC2_PUBLIC_IP>:/var/www/html/
-            ssh -o StrictHostKeyChecking=no ec2-user@<EC2_PUBLIC_IP> 'sudo systemctl restart httpd'
+            scp -o StrictHostKeyChecking=no -r * ec2-user@65.0.76.23:/var/www/html/
+            ssh -o StrictHostKeyChecking=no ec2-user@65.0.76.23 'sudo systemctl restart httpd'
           '''
         }
       }
